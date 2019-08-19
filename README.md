@@ -1,9 +1,37 @@
-# JavaScript Action Template
 
-This template offers an easy way to get started writing a javascript action with TypeScript compile time support, unit testing with Jest and using the GitHub Actions Toolkit.
+# setup-vswhere
 
-## Getting Started
+This action sets up VSWhere.exe as a CLI tool for use in actions by:
+- optionally downloading and caching a version of VSWhere.exe and adds to PATH for future steps to use
 
-See the walkthrough located [here](https://github.com/actions/toolkit/blob/master/docs/javascript-action.md).
+https://github.com/microsoft/vswhere
 
-In addition to walking your through how to create an action, it also provides strategies for versioning, releasing and referencing your actions.
+# Usage
+
+Basic:
+```yaml
+steps:
+name: ASP.NET CI
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@master
+
+    - name: Setup VSWhere.exe
+      uses: warrenbuckley/Setup-VSWhere@v1
+
+    - name: VSWhere MSBuild
+      run: vswhere -latest -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe
+```
+
+
+# License
+
+The scripts and documentation in this project are released under the [MIT License](LICENSE)
+
+# Contributions
+
+Contributions are welcome!  See [Contributor's Guide](docs/contributors.md)
