@@ -1,10 +1,10 @@
-name: 'Node 12 Template Action'
-description: 'Get started with Node actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'Setup VSWhere.exe'
+description: 'Goes and downloads 2.7.1 VSWhere.exe as CLI tool and puts it into the path'
+author: 'Warren Buckley'
 runs:
   using: 'node12'
   main: 'lib/main.js'
+branding:
+  icon: 'download'
+  color: 'purple'
+
